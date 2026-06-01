@@ -1,0 +1,17 @@
+# Menjalankan skrip ETL Pipeline
+python main.py
+
+# Menjalankan unit test
+python -m pytest tests/
+
+# Menjalankan test coverage
+coverage run -m pytest tests/
+coverage report -m
+
+# Konfigurasi PostgreSQL:
+Buat file .env di root project dengan isi:
+DB_PASSWORD=password_postgresql_anda
+Pastikan database 'fashion_db' sudah dibuat sebelum menjalankan pipeline
+
+# URL Google Sheets:
+https://docs.google.com/spreadsheets/d/1eZu078_cjVJnYFIfZtNts9YiUVKYntoQhUhB7onyMaE/edit
