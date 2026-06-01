@@ -1,30 +1,8 @@
-# Final Project: Building a Simple ETL Pipeline
+# Building a Simple ETL Pipeline
 
 An ETL Pipeline to extract fashion product data from the Fashion Studio website
 (https://fashion-studio.dicoding.dev) using web scraping, transform the data,
 and load it into 3 different data repositories.
-
----
-
-## Project Structure
-
-```
-proyek-akhir-membangun-etl-pipeline-sederhana/
-├── utils/
-│   ├── __init__.py
-│   ├── extract.py
-│   ├── transform.py
-│   └── load.py
-├── tests/
-│   ├── __init__.py
-│   ├── test_extract.py
-│   ├── test_transform.py
-│   └── test_load.py
-├── main.py
-├── requirements.txt
-├── submission.txt
-└── products.csv
-```
 
 ---
 
@@ -72,7 +50,7 @@ pip install -r requirements.txt
 ### 1. Create a Project in Google Cloud Console
 - Go to https://console.cloud.google.com/
 - Click the project dropdown → **"New Project"**
-- Project name: anything (e.g. `submission-pemda`)
+- Project name: anything (e.g. `simple-etl`)
 - Click **"Create"**
 
 ### 2. Enable Google Sheets API
@@ -139,9 +117,6 @@ Create a `.env` file in the root folder of this project:
 DB_PASSWORD=your_postgresql_password
 ```
 
-> **Note:** The `.env` file is not pushed to GitHub or included in the submission ZIP.
-> Create your own `.env` file with your PostgreSQL password before running the pipeline.
-
 ---
 
 ## Configuration
@@ -183,41 +158,6 @@ python -m pytest tests/ -v
 coverage run -m pytest tests/
 coverage report -m
 ```
-
----
-
-## Coverage Results
-
-| File | Statements | Miss | Coverage |
-|---|---|---|---|
-| tests/__init__.py | 0 | 0 | 100% |
-| tests/test_extract.py | 66 | 0 | 100% |
-| tests/test_load.py | 45 | 0 | 100% |
-| tests/test_transform.py | 87 | 0 | 100% |
-| utils/__init__.py | 0 | 0 | 100% |
-| utils/extract.py | 82 | 19 | 77% |
-| utils/load.py | 40 | 0 | 100% |
-| utils/transform.py | 117 | 30 | 74% |
-| **TOTAL** | **437** | **49** | **89%** |
-
----
-
-## Data Repositories
-
-| Repository | Description | Status |
-|---|---|---|
-| CSV | `products.csv` available in project folder | ✅ |
-| Google Sheets | URL listed in `submission.txt` | ✅ |
-| PostgreSQL | Database `fashion_db`, configured via `.env` | ✅ |
-
----
-
-## Important Notes
-
-- `google-sheets-api.json` **must exist** in the root folder to run the pipeline
-- `.env` contains the PostgreSQL password and is **not included** in the repository
-- If PostgreSQL is unavailable, the pipeline will still run (CSV & Google Sheets will still be saved)
-- Transformed data result: **867 rows** from 1000 scraped records
 
 ---
 
